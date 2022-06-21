@@ -1,0 +1,37 @@
+# MucaTour - API
+    # backend:
+    #   container_name: Api-container
+    #   build:
+    #     context: MT-API
+    #     dockerfile: Dockerfile
+    #   image: message-server:latest
+    #   restart: always
+    #   ports:
+    #     - 8080:8080
+
+# MucaTour - WEB
+    # frontend:
+    #   container_name: Web-container
+    #   build:
+    #     context: MT-Web
+    #     dockerfile: Dockerfile
+    #   image: product-server:latest
+    #   restart: always
+    #   ports:
+    #     - 80:80
+    #     - 443:443
+
+    server_name localhost;
+    access_log off;
+    charset utf-8;
+
+
+
+# NGINX - API
+  # backend-nginx:
+  #   container_name: nginx-api
+  #   image: nginx:stable
+  #   volumes:
+  #     - ./MT-Api/nginx/conf.d:/etc/nginx/conf.d:rw
+  #   depends_on:
+  #     - backend
